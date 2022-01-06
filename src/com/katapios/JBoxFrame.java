@@ -51,15 +51,26 @@ public class JBoxFrame extends javax.swing.JFrame {
         jStartBtn.setText("старт");
         jStartBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jStartBtnActionPerformed(evt);
+                jStartMove(evt);
             }
         });
 
         jStopBtn.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         jStopBtn.setText("стоп");
+        jStopBtn.setEnabled(false);
+        jStopBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jStopMove(evt);
+            }
+        });
 
         jExitBtn.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         jExitBtn.setText("выход");
+        jExitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jExit(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,14 +147,31 @@ public class JBoxFrame extends javax.swing.JFrame {
 
     public void moveBox(){
         Point p = jBox.getLocation();
-        p.move(p.x + kx * STEP, ky * STEP);
+        p.move(p.x + kx * STEP, p.y + ky * STEP);
         jBox.setLocation(p);
     }
     
-    private void jStartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jStartBtnActionPerformed
+    private void jStartMove(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartMove
+        thread = new MoveThread(this, 50);
+        thread.start();
+        switchButtons();
+    }//GEN-LAST:event_jStartMove
 
+    private void jStopMove(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStopMove
+        thread.stop();
+        switchButtons();
+    }//GEN-LAST:event_jStopMove
+
+    private void jExit(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExit
+        this.dispose();
+    }//GEN-LAST:event_jExit
+
+    private void switchButtons(){
+        jStartBtn.setEnabled(!jStartBtn.isEnabled());
+        jStopBtn.setEnabled(!jStopBtn.isEnabled());
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

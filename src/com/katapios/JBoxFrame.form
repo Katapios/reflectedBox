@@ -87,7 +87,7 @@
             <Property name="text" type="java.lang.String" value="&#x441;&#x442;&#x430;&#x440;&#x442;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jStartBtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jStartMove"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jStopBtn">
@@ -96,7 +96,11 @@
               <Font name="Lucida Grande" size="15" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x441;&#x442;&#x43e;&#x43f;"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jStopMove"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jExitBtn">
           <Properties>
@@ -105,6 +109,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#x432;&#x44b;&#x445;&#x43e;&#x434;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jExit"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
