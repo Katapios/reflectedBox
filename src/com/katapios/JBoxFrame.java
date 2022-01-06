@@ -15,6 +15,7 @@ public class JBoxFrame extends javax.swing.JFrame {
     
     private static final int STEP = 5;
     private int kx,ky;
+    private MoveThread thread;
     
     public JBoxFrame() {
         initComponents();
