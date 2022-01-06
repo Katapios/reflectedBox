@@ -147,6 +147,8 @@ public class JBoxFrame extends javax.swing.JFrame {
 
     public void moveBox(){
         Point p = jBox.getLocation();
+        if((p.x >= jPanel2.getWidth() - jBox.getWidth()) || (p.x <= 0)) kx = -kx;
+        if(p.y >= jPanel2.getHeight() - jBox.getHeight() || (p.y <= 0)) ky = -ky;
         p.move(p.x + kx * STEP, p.y + ky * STEP);
         jBox.setLocation(p);
     }
@@ -163,6 +165,9 @@ public class JBoxFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jStopMove
 
     private void jExit(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExit
+        if (this.thread != null){
+            thread.stop();
+        }
         this.dispose();
     }//GEN-LAST:event_jExit
 

@@ -12,9 +12,11 @@ public class MoveThread implements Runnable{
         self = new Thread(this);
     }
 
+    
     public void setDelay(int delay) {
         this.delay = delay;
     }
+
 
     public void start(){
         canMove = true;
