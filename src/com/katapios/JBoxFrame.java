@@ -4,17 +4,24 @@
  */
 package com.katapios;
 
+import java.util.Random;
+
 /**
  *
  * @author denisrumin
  */
 public class JBoxFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form JBoxFrame
-     */
+    
+    private static final int STEP = 5;
+    private int kx,ky;
+    
     public JBoxFrame() {
         initComponents();
+        kx = ky = 1;
+        Random rnd = new Random();
+        jPanel2.setLayout(null);
+        jBox.setLocation(rnd.nextInt(jPanel2.getWidth() - jBox.getWidth()),
+                rnd.nextInt(jPanel2.getHeight() - jBox.getHeight()));
     }
 
     /**
