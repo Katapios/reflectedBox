@@ -4,6 +4,7 @@
  */
 package com.katapios;
 
+import java.awt.Point;
 import java.util.Random;
 
 /**
@@ -132,6 +133,12 @@ public class JBoxFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void moveBox(){
+        Point p = jBox.getLocation();
+        p.move(p.x + kx * STEP, ky * STEP);
+        jBox.setLocation(p);
+    }
+    
     private void jStartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStartBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jStartBtnActionPerformed
